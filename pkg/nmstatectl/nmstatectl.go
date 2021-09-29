@@ -44,7 +44,7 @@ func nmstatectlWithInput(arguments []string, input string) (string, error) {
 	if err := cmd.Run(); err != nil {
 		return "", fmt.Errorf("failed to execute %s %s: '%v' '%s' '%s'", nmstateCommand, strings.Join(arguments, " "), err, stdout.String(), stderr.String())
 	}
-	return stdout.String(), nil
+	return stdout.String() + stderr.String(), nil
 
 }
 

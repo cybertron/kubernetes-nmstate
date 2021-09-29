@@ -23,6 +23,9 @@ make cluster-sync-operator
 # Will fail on subsequent runs, this is fine.
 oc create -f build/_output/manifests/scc.yaml || :
 oc create -f test/e2e/nmstate.yaml
+
+exit 0
+
 # On first deployment, it can take a while for all of the pods to come up
 # First wait for the handler pods to be created
 while ! oc get pods -n nmstate | grep handler; do sleep 1; done
