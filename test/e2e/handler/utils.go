@@ -567,6 +567,9 @@ func nodeInterfacesState(node string, exclude []string) []byte {
 		if ifaceInSlice(name.(string), exclude) {
 			continue
 		}
+		if strings.HasPrefix(name.(string), "veth") {
+			continue
+		}
 		state, hasState := iface.(map[string]interface{})["state"]
 		if !hasState {
 			state = "unknown"

@@ -251,6 +251,9 @@ func resetPrimaryAndSecondaryNICs() nmstate.State {
   - name: %s
     type: ethernet
     state: up
+    ipv4:
+      enabled: true
+      dhcp: true
   - name: %s
     type: ethernet
     state: down
